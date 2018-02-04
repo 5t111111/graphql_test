@@ -1,0 +1,2 @@
+class SubWeapon < ApplicationRecord
+end
