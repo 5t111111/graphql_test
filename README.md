@@ -21,6 +21,8 @@ Then visit `http://localhost:3000/graphiql` in your browser.
 
 ## Query
 
+(Data seeds are still WIP. See current registered seed => https://github.com/5t111111/graphql_test/blob/master/db/seeds.rb)
+
 Fetch a weapon's `id` and `name` with the name "スプラシューター":
 
 ```
