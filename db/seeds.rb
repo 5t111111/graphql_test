@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+weapon_names = %w(スプラシューター)
+
+weapon_names.each do |weapon_name|
+  Weapon.find_or_create_by(name: weapon_name)
+end
