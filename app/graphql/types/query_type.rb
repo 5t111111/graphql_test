@@ -17,4 +17,11 @@ Types::QueryType = GraphQL::ObjectType.define do
       Weapon.find_by!(name: args[:name])
     }
   end
+
+  field :sub_weapon, Types::SubWeaponType do
+    argument :name, !types.String
+    resolve ->(obj, args, ctx) {
+      SubWeapon.find_by!(name: args[:name])
+    }
+  end
 end
