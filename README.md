@@ -1,24 +1,57 @@
-# README
+# graphql_test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GraphQL 試す用の Rails アプリケーション
 
-Things you may want to cover:
+## Get started
 
-* Ruby version
+```
+$ bundle install
+```
 
-* System dependencies
+```
+$ bin/rails db:migrate
+$ bin/rails db:seed
+```
 
-* Configuration
+```
+$ bin/rails s
+```
 
-* Database creation
+Then visit `http://localhost:3000/graphiql` in your browser.
 
-* Database initialization
+## Query
 
-* How to run the test suite
+Fetch a weapon's `id` and `name` with the name "スプラシューター":
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+{
+  weapon(name: "スプラシューター") {
+    id
+    name
+  }
+}
+```
 
-* Deployment instructions
 
-* ...
+Fetch all weapons which have "スプラッシュボム" as their sub-weapon:
+
+```graphql
+{
+  sub_weapon(name: "スプラッシュボム") {
+    id
+    name
+    weapons {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+## Mutation
+
+Creating and updating are not supported yet.
